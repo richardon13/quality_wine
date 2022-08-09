@@ -45,11 +45,15 @@ print('='*158)
 
 # Ploteo los valores
 df_wine.plot()
+plt.title("wine variables")
 plt.show()
 
 # Grafico la densidad
 
 df_wine['density'].plot()
+plt.title("Wine Density", fontsize= 20, pad='15',fontstyle='italic')
+plt.xlabel('Variables')
+plt.ylabel('Density')
 plt.show()
 
 #R/= Descubro que la densidad posee valores atipicos 
@@ -57,6 +61,7 @@ plt.show()
 # Descubro cuales son valores que determinan la calidad del vino y los grafico
 sns.set(rc={'figure.figsize': (14, 8)})
 sns.countplot(df_wine['quality'])
+plt.title("Wine Quality", fontsize= 20, pad='15',fontstyle='italic')
 plt.show()
 
 #R/ = Por indagacion previa, se descubrio que mientras mas alto el valor mejor es la calidad del vino.
@@ -70,17 +75,20 @@ plt.show()
 # Grafico la correlacion entre las variables
 
 sns.heatmap(df_wine.corr(), annot = True, fmt = '.2f', linewidths = 2, cmap = 'coolwarm')
+plt.title("Correlation Diagram", fontsize= 20, pad='15',fontstyle='italic')
 plt.show()
 
 # Debido a la alta correlacion que existe entre el alcohol y la densidad, procedemos a hacer su 
 # respectiva grafica comparativa
 
 sns.distplot(df_wine['alcohol'])
+plt.title("Alcohol vs Density", fontsize= 20, pad='15',fontstyle='italic')
 plt.show()
 
 # R/= El alcohol es muy importante para determinar la calidad del vino debido a su alta correlacion
 
 sns.boxplot(x='quality', y='alcohol', data=df_wine)
+plt.title("Boxplot Density vs Alcohol", fontsize= 20, pad='15',fontstyle='italic')
 plt.show()
 
 #R/= Se observa en el grafico de cajas que la calidad del vino 5 posee una cantidad considerable de 
